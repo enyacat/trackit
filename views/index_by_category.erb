@@ -1,0 +1,12 @@
+<section class="items">
+<% items_by_tag(tag).each  do |item|%>     
+    <div>
+        <div><a href="/id/<%=item['id']%>"><img src="<%= item['image_url']%>" alt="" class="thumbnail" width="48" height="48"></a></div>
+        <div><% if logged_in? %>
+            <form action="/list/item/<%= item['id']%>" method="post">
+                <button class="btn btn-light">+</button>
+            </form>
+        <% end %></div>
+    </div>
+<% end %>
+</section>

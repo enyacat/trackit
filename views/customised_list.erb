@@ -1,0 +1,33 @@
+<h2>List by <%= current_user.email %></h2>
+<table class="table">
+    <tr>
+        <th>Image</th>
+        <th>Item Name <a href="/list/sorting/ascending/name">&#9650</a><a href="/list/sorting/descending/name">&#9660</a></th>
+        <th>Variant<a href="/list/sorting/ascending/variant">&#9650</a><a href="/list/sorting/descending/variant">&#9660</a></th>
+        <th>Category<a href="/list/sorting/ascending/tag">&#9650</a><a href="/list/sorting/descending/tag">&#9660</a></th>
+        <th>Quantity<a href="/list/sorting/ascending/quantity">&#9650</a><a href="/list/sorting/descending/quantity">&#9660</a></th>
+        <th>Purchase Date<a href="/list/sorting/ascending/purchase_date">&#9650</a><a href="/list/sorting/descending/purchase_date">&#9660</a></th>
+        <th>Expiry Date<a href="/list/sorting/ascending/expiry_date">&#9650</a><a href="/list/sorting/descending/expiry_date">&#9660</a></th>
+        <th>Edit</th>   
+    </tr>
+    
+        <% items.each do |item|%>
+        <tr>
+            <td><a href="/id/<%=item['id']%>"><img src="<%=item['image_url']%>" alt="" width="36" height="36"></a></td>
+            <td><%=item['name']%></td>
+            <td><%=item['variant']%></td>
+            <td><%=item['tag']%></td>
+            <td><%=item['quantity']%></td>
+            <td><%=item['purchase_date']%></td>
+            <td><%=item['expiry_date']%></td>
+            <td id="edit">
+                <a class="btn btn-primary" href="/items/<%=item['id']%>/edit">Edit</a>
+                <form action="/items/<%= item['id']%>" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button class="btn btn-danger">X</button>
+                </form>
+            </td>
+        </tr>
+        <% end %>
+    
+</table>

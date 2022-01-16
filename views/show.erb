@@ -1,0 +1,12 @@
+<section class="main">
+<div><h2><%= item['name']%></h2></div>
+<div><img src="<%= item['image_url']%>" alt=""></div>
+<div><% if logged_in? and item['user_id'] == current_user.id%>
+    <a class="btn btn-primary" href="/items/<%=item['id']%>/edit">Edit</a>
+
+<form action="/items/<%= item['id']%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button class="btn btn-danger">Delete</button>
+</form>
+<% end %></div>
+</section>

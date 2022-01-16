@@ -1,0 +1,20 @@
+<h1>Update an item</h1>
+<form action="/items/<%=item['id']%>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <label for="">Name:</label>
+    <input type="text" name="name" value=<%= item['name']%>>
+    <label for="">Quantity:</label>
+    <input type="text" name="quantity" value=<%= item['quantity']%>>
+    <label for="">Variant:</label>
+    <input type="text" name="variant" value=<%= item['variant']%>>
+    <label for="">Category:</label>
+    <input type="text" name="tag" value=<%= item['tag']%>>
+    <label for="">Purchase date:</label>
+    <input type="DATE" name="purchase_date" value=<%= item['purchase_date']%>>
+    <label for="">Expiry date:</label>
+    <input type="DATE" name="expiry_date" value=<%= item['expiry_date']%>>
+    <label for="">image url:</label>
+    <input type="text" name="image_url" value=<%= item['image_url']%>>
+    <button class="btn btn-secondary">Update</button>
+
+</form>

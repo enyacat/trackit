@@ -1,0 +1,138 @@
+* {
+    font-family: 'Comfortaa', cursive;
+}
+
+html {
+    padding: 0 5%;
+}
+/* .menu {
+    display: flex;
+    flex-direction: row;
+} */
+
+.items {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    align-items: center;
+    gap: 1rem;
+}
+
+.items div {
+    display: inline-flex;
+}
+
+.btn-group {
+   display: flex;
+   flex-flow: row wrap; 
+}
+
+h1 {
+    font-family: 'Comfortaa', cursive;
+    font-size: 2rem;
+}
+
+h1, h2 {
+    display: inline-flex;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+body {
+    margin-top: 2em;
+    background: #b5dcea;
+}
+
+/* clay effect from https://codepen.io/antoniasymeonidou/pen/RwLMqxy */
+
+.box {
+    text-align: center;
+    position: relative;
+    border-radius: 30px;
+    padding: 3em 2em;
+    background: white;
+    box-shadow: 0 35px 65px 0 rgba(86, 142, 184, 0.42), inset 0 -10px 15px 0 rgba(113, 203, 235, 0.8);
+}
+
+#edit {
+    display: inline-flex;
+    box-sizing: border-box;
+}
+
+.thumbnail:hover {
+    position:relative;
+    top:-25px;
+    left:-35px;
+    width:100px;
+    height:100px;
+    display:block;
+    z-index:999;
+} 
+
+/* .thumbnail {
+    -webkit-transition: width 0.1s, height 0.1s;
+    transition: width 0.1s, height 0.1s;
+}
+.thumbnail:hover {
+    width: 50%;
+    height: 50%;
+} */
+
+/* table formatting code is from https://css-tricks.com/responsive-data-tables/ */
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: rgb(111, 111, 111); 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 1rem;
+    text-align: left; 
+  }
+
+
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+  
+      /* Force table to not be like tables anymore */
+      table, thead, tbody, th, td, tr { 
+          display: block; 
+      }
+      
+      /* Hide table headers (but not display: none;, for accessibility) */
+      thead tr { 
+          position: absolute;
+          top: -9999px;
+          left: -9999px;
+      }
+      
+      tr { border: 1px solid #ccc; }
+      
+      td { 
+          /* Behave  like a "row" */
+          border: none;
+          border-bottom: 1px solid #eee; 
+          position: relative;
+          padding-left: 50%; 
+      }
+      
+      td:before { 
+          /* Now like a table header */
+          position: absolute;
+          /* Top/left values mimic padding */
+          top: 6px;
+          left: 6px;
+          width: 45%; 
+          padding-right: 10px; 
+          white-space: nowrap;
+      }

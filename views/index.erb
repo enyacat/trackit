@@ -1,0 +1,5 @@
+<section class="items">
+    <% items.each do |item|%>   
+        <a href="/id/<%=item['id']%>"><img src="<%= item['image_url']%>" alt="" class="thumbnail" width="48" height="48"></a>
+    <% end %>
+</section>
