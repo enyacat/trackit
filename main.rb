@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/base'
 require 'pg'
 require 'bcrypt'
 
@@ -25,13 +26,17 @@ def current_user()
   return OpenStruct.new(user)
 end
 
-get '/' do
-  result = show_user_list(2)
-  erb :index, locals: {
-    items: result,
-    user_id: 2,
-  }
+class HelloWorld < Sinatra::Base
+  get '/' do
+    result = show_user_list(2)
+    erb :index, locals: {
+      items: result,
+      user_id: 2,
+    }
+  end
 end
+
+
 
 get '/items/new' do
   redirect '/login' unless logged_in?

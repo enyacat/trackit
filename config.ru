@@ -4,4 +4,4 @@ Bundler.require
 
 
 require './main'
-run houseware
+run HelloWorld
