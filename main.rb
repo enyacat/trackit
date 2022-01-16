@@ -36,7 +36,13 @@ class HelloWorld < Sinatra::Base
   end
 end
 
-
+get '/' do
+  result = show_user_list(2)
+  erb :index, locals: {
+    items: result,
+    user_id: 2,
+  }
+end
 
 get '/items/new' do
   redirect '/login' unless logged_in?
