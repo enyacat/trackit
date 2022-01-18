@@ -1,7 +1,8 @@
 
-require 'bundler'
-Bundler.require
+# require 'bundler'
+# Bundler.require
 
 
 require './main'
-run HelloWorld
+run Sinatra::Application
+# run HelloWorld
