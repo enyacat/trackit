@@ -141,11 +141,8 @@ end
 post '/session' do
   email = params["email"]
   password = params["password"]
-  conn = PG.connect(dbname: 'inventory')
-  sql = "SELECT * FROM users WHERE email = '#{email}';"
-  result = conn.exec(sql) 
-  conn.close
-
+  sql = "SELECT * FROM users WHERE email = $1;"
+  result = db_query(sql,[email])
   if result.count > 0 && BCrypt::Password.new(result[0]['password_digest']) == password
       session[:user_id] = result[0]['id']
       redirect '/'
