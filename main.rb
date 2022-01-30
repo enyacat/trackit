@@ -1,6 +1,4 @@
 require 'sinatra'
-# require 'sinatra/base'
-# require 'sinatra/activerecord'
 require 'pg'
 require 'bcrypt'
 
@@ -27,23 +25,6 @@ def current_user()
   return OpenStruct.new(user)
 end
 
-# class HelloWorld < Sinatra::Base
-#   get '/' do
-#     result = show_user_list(2)
-#     erb :index, locals: {
-#       items: result,
-#       user_id: 2,
-#     }
-#   end
-# end
-# ActiveRecord::Base.establish_connection(
-# :adapter => "postgresql",
-# :host => "localhost",
-# :username => ENV['PG_USERNAME'],
-# :password => "",
-# :database => "inventory"
-
-# )
 get '/' do
   result = show_user_list(2)
   erb :index, locals: {
